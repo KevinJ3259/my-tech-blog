@@ -3,30 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Just Tech News</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>The Tech Blog</title>
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
 
   <body>
-    <div class="wrapper">
-      <header>
-        <nav>
-          <a href="/">Home</a>
-          <a href="/">Dashboard</a>
-          <a href="/">Logout</a>
-        </nav>
-        <h1>
-          <a href="/">My Tech Blog</a>
-        </h1>
-      </header>
-      <main>
-        {{{body}}}
-      </main>
-      <footer>
-        Thanks for visiting!
-      </footer>
-    </div>
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        {{#if logged_in}}
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li id="logout">Logout</li>
+        {{else}}
+          <li><a href="/login">Login</a></li>
+        {{/if}}
+      </ul>
+      <h1 id="techBlog">My Tech Blog</h1>
+    </nav>
+
+    <main>
+      {{{body}}}
+    </main>
+
+    {{#if logged_in}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
 
   </body>
-
 </html>
