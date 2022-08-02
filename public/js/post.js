@@ -16,6 +16,8 @@ document.querySelector(".commentBtn").onclick = async () => {
     if (!response.ok) {
       throw new Error(data.message);
     }
+
+    location.reload();
   } catch (err) {
     console.log(err);
   }

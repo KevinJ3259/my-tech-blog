@@ -10,6 +10,21 @@
   </div>
 
   <h3>Comments</h3>
+
+  {{#each post.comments as |comment|}}
+
+    <div value="{{comment.id}}" class="post">
+      <div class="postContent">
+        <div>
+          <h5>{{comment.content}}</h5>
+          <h6> --- {{comment.user.userName}}</h6>
+        </div>
+        <h6>{{format_date comment.date_created}}</h6>
+      </div>
+    </div>
+
+  {{/each}}
+
   {{#if logged_in}}
     <textarea class="commentInput"></textarea>
     <button class="commentBtn">Add a comment</button>
