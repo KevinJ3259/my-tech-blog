@@ -2,12 +2,13 @@
   <div class="loginSignup">
     <h2>Log In</h2>
     <form class="login-form">
+      <div class="error"></div>
       <label for="user-name-login">Username:</label><br />
       <input type="text" id="user-name-login" /><br />
       <label for="password-login">Password:</label><br />
-      <input type="password" id="password-login" />
+      <input type="password" id="password-login" /><br />
+      <button type="submit" id="loginBtn">Submit</button><br />
     </form>
-    <button type="submit" id="loginBtn">Submit</button><br />
   </div>
 
   <div class="vertical-line1"></div>
@@ -15,12 +16,13 @@
   <div class="loginSignup">
     <h2>Sign Up</h2>
     <form class="signup-form">
+      <div class="error"></div>
       <label for="user-name-signup">Username:</label><br />
       <input type="text" id="user-name-signup" /><br />
       <label for="password-signup">Password:</label><br />
-      <input type="password" id="password-signup" />
+      <input type="password" id="password-signup" /><br />
+      <button type="submit" id="signupBtn">Submit</button><br />
     </form>
-    <button type="submit" id="signupBtn">Submit</button><br />
   </div>
 </section>
 {{#if logged_in}}

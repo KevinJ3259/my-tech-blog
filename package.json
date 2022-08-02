@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "schema": "mysql -u root -p < ./db/schema.sql"
+    "schema": "mysql -u root -p < ./db/schema.sql",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",

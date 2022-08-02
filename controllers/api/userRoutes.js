@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { User, Post } = require("../../models");
 
 //Sign up
-router.post("/", async (req, res) => {
+router.post("/signup", async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
@@ -14,8 +14,12 @@ router.post("/", async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
-    console.log(err);
-    res.status(400).json(err);
+    if (err.errors && err.errors.length && err.errors[0].type === "unique violation") {
+      res.status(400).json({ message: "Username already in use." });
+    } else {
+      console.log(err);
+      res.status(500).json({ message: "Something went wrong." });
+    }
   }
 });
 
@@ -45,7 +49,7 @@ router.post("/login", async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    res.status(400).json(err);
+    res.status(500).json({ message: "Something went wrong." });
   }
 });
 

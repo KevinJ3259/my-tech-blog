@@ -71,5 +71,19 @@ button {
   color: white;
 }
 
+textarea {
+  display: block;
+  width: 500px;
+  height: 200px;
+  resize: none;
+  font-family: inherit;
+  padding: 1.5em;
+  margin-bottom: 1em;
+}
+
 article {
+}
+
+.error {
+  color: red;
 }
