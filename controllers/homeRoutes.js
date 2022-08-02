@@ -73,4 +73,41 @@ router.get("/dashboard", async (req, res) => {
   }
 });
 
+router.get("/posts/:id", async (req, res) => {
+  try {
+    const postData = await Post.findOne({
+      include: [
+        {
+          model: User,
+          attributes: ["userName", "id"],
+        },
+      ],
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (!postData) {
+      res.status(404).json({ message: "No post found with this id!" });
+      return;
+    }
+    const post = postData.get({ plain: true });
+
+    const userData = await User.findByPk(req.session.userId, {
+      include: [{ model: Post }],
+    });
+
+    const user = userData ? userData.get({ plain: true }) : null;
+
+    res.render("post", {
+      user,
+      logged_in: req.session.logged_in,
+      post,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: err.message });
+  }
+});
+
 module.exports = router;

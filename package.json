@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "schema": "mysql -u root -p < ./db/schema.sql",
+    "seeds": "node ./seeds/seed.js",
     "dev": "nodemon server.js"
   },
   "repository": {

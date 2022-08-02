@@ -1,10 +1,15 @@
 [
     {
         "title": "An Educational Journey",
-        "content": "There's so much I want to learn!"
+        "content": "There's so much I want to learn!",
+        "user_id": 1,
+        "date_created": "2022-08-02 07:18:30"
+
     },
     {
         "title": "Unforseen Challenges",
-        "content": "I really need to understand computer science better"
+        "content": "I really need to understand computer science better",
+        "user_id": 2,
+        "date_created": "2022-08-02 07:25:10"
     }
 ]
