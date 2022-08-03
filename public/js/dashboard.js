@@ -28,3 +28,26 @@ document.querySelectorAll(".editBtn").forEach((button) => {
     location.href = "/edit-post/" + button.value;
   };
 });
+
+document.querySelectorAll(".deleteBtn").forEach((button) => {
+  button.onclick = async () => {
+    try {
+      const response = await fetch(`/api/posts/${button.value}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message);
+      }
+
+      location.reload();
+    } catch (err) {
+      console.log(err);
+    }
+  };
+});
