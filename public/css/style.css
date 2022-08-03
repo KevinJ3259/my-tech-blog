@@ -12,8 +12,17 @@ html {
 }
 
 header {
-  color: #d9ead3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background: #231010;
+  color: #8c8a8a;
+  padding: 1em;
+}
+
+body > header {
+  display: block;
+  color: #d9ead3;
   padding: 2em 3em;
   padding-top: 0;
 }
@@ -28,6 +37,19 @@ header h1 {
   box-shadow: 0.25em 0.25em 0px #a7a7a7;
   font-size: 2em;
   font-weight: bold;
+}
+
+header h2 {
+  margin: 0;
+}
+
+article > main {
+  padding: 1em;
+  font-size: 1.1em;
+}
+
+article {
+  border: 0.2em solid #231010;
 }
 
 nav ul {
@@ -52,7 +74,7 @@ a {
   padding: 1.5em 2em;
 }
 
-main {
+body > main {
   padding: 2em 3em;
 }
 
@@ -79,9 +101,6 @@ textarea {
   font-family: inherit;
   padding: 1.5em;
   margin-bottom: 1em;
-}
-
-article {
 }
 
 .error {
