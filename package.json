@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "schema": "mysql -u root -p < ./db/schema.sql"
+    "schema": "mysql -u root -p < ./db/schema.sql",
+    "seeds": "node ./seeds/seed.js",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +29,6 @@
     "sequelize": "^6.21.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.18"
+    "nodemon": "^2.0.19"
   }
 }

@@ -1,4 +1,30 @@
+{{#each posts as |post|}}
 
-{{#each blogPosts}}
-    {{> blog-post this}}
+  <a href="posts/{{post.id}}" class="post">
+    <div class="postTitle">
+      <h4>{{post.title}}</h4>
+      <h6>{{format_date post.date_created}}</h6>
+    </div>
+
+    {{!-- <button id="{{post.id}}"class="showComment">Show Comments</button>
+            <button class="hideComment hide">Hide Comments</button> --}}
+  </a>
+
+  {{!-- {{#each comments as |comment|}}
+          
+
+              <div value="{{comment.id}}"class="post">
+                <div class="postContent">
+                    <div>
+                        <h5>{{comment.content}}</h5>
+                        <h6>   --- {{comment.user.userName}}</h6>
+                    </div>
+                    <h6>{{format_date comment.date_created}}</h6>
+                </div>
+            </div>
+        
+        {{/each}} --}}
+
 {{/each}}
+
+<script src="/js/script.js"></script>

@@ -1,20 +1,32 @@
 const User = require("./User");
-const List = require("./List");
-const Movie = require("./Movie");
+const Post = require("./Post");
+const Comment = require("./Comment");
 
-// User.hasMany(List, {
-//   foreignKey: "user_id",
-// });
+User.hasMany(Post, {
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
+});
 
-// List.belongsTo(User, {
-//   foreignKey: "user_id",
-// }),
-//   List.hasMany(Movie, {
-//     foreignKey: "list_id",
-//   });
+Post.belongsTo(User, {
+  foreignKey: "user_id",
+});
 
-// Movie.belongsTo(List, {
-//   foreignKey: "list_id",
-// });
+Post.hasMany(Comment, {
+  foreignKey: "post_id",
+  onDelete: "CASCADE",
+});
 
-module.exports = { Movie, User, List };
+Comment.belongsTo(Post, {
+  foreignKey: "post_id",
+});
+
+User.hasMany(Comment, {
+  foreignKey: "user_id",
+  onDelete: "CASCADE",
+});
+
+Comment.belongsTo(User, {
+  foreignKey: "user_id",
+});
+
+module.exports = { User, Post, Comment };

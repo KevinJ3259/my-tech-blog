@@ -7,30 +7,29 @@ Comment.init(
   {
     id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       primaryKey: true,
       autoIncrement: true,
     },
-    text: {
+    content: {
       type: DataTypes.STRING,
+    },
+    date_created: {
+      type: DataTypes.DATE,
       allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: "user",
         key: "id",
       },
     },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-    },
-    blog_post_id: {
+    post_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
-        model: "BlogPost",
+        model: "post",
         key: "id",
       },
     },
@@ -40,7 +39,7 @@ Comment.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "list",
+    modelName: "comment",
   }
 );
 
