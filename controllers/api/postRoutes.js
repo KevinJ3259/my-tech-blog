@@ -79,6 +79,7 @@ router.put(
 
       res.status(200).json(postData);
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   }

@@ -22,3 +22,9 @@ document.querySelector("#newBlogPostBtn").onclick = async () => {
     console.log(err);
   }
 };
+
+document.querySelectorAll(".editBtn").forEach((button) => {
+  button.onclick = () => {
+    location.href = "/edit-post/" + button.value;
+  };
+});
