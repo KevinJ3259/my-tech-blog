@@ -1,0 +1,19 @@
+<h2 class="dashUser">{{user.userName}}</h2>
+
+<form value="{{post.id}}" class="editPost">
+  <div class="error"></div>
+  <div class="postTitle">
+    <input type="text" value="{{post.title}}" placeholder="Blog post title..." />
+    <h6>{{format_date post.date_created}}</h6>
+  </div>
+  <div class="postContent">
+    <textarea placeholder="Blog post content...">{{post.content}}</textarea>
+  </div>
+
+  <button class="saveBtn">Save</button>
+</form>
+
+<hr />
+
+<script>const POST_ID = {{post.id}};</script>
+<script src="/js/edit-post.js"></script>
